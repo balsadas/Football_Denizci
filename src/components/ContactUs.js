@@ -1,21 +1,56 @@
-import React, { useEffect } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 
 
 
 function ContactUs() {
-    // useEffect(() => {
-    //     AOS.init();
-    //     AOS.refresh();
-    // }, []);
+
+
+
+    const [data, setData] = useState({
+        email: '',
+        text: '',
+        phone: '',
+        name: '',
+        surname: '',
+
+    })
+    const handleChange = (e) => {
+        const value = e.target.value
+        setData({
+            ...data,
+            [e.target.name]: value
+        })
+    }
+    const reset = () => {
+        setData('')
+    }
+
+    const fetch = async () => {
+        const fet = {
+            email: data.email,
+            phone: data.phone,
+            name: data.name,
+            text: data.text,
+            surname: data.surname,
+        }
+        try {
+            if (data.text !== '' && data.phone !== '' && data.name !== '' && data.email !== '' && data.surname !== '') {
+                await axios.post(`http://localhost:8001/sendmail`, fet)
+                reset()
+            }
+        } catch (error) { console.log(error) }
+       
+    }
+
+
     return (
         <div className='md:pb-[6rem] pb-[2rem] bg-[#f5f7f7e8]' id='Contacts'>
             <div className='flex justify-end w-[95%] pt-[5rem] '>
                 <div>
                     <h2
-                        data-aos="fade-down"
-                        data-aos-easing="linear"
-                        data-aos-duration="800"
+
                         className='text-[6vw] md:text-[3vw] xl:text-[2vw]  font-[600] flex justify-end'>Contact Us</h2>
                     <div className='md:w-[75%] md:ml-14    h-[2px] bg-green-200'></div>
                 </div>
@@ -73,11 +108,7 @@ function ContactUs() {
 
                             </div>
                         </div>
-                        <div
-                            data-aos="fade-left"
-                            data-aos-offset="300"
-                            data-aos-duration='900'
-                            data-aos-easing="ease-in-sine">
+                        <div>
                             <div
 
                                 className='md:mt-[3rem] mt-[2rem] md:block flex justify-center'>
@@ -85,43 +116,43 @@ function ContactUs() {
                                     You can contact us any way that is convenient for you. We are available 24/7 via fax or email. You can also use a quick contact form below or visit our office personally.
                                 </p>
                             </div>
-                            <form method="post" action="sendemail.php" id="contact-form">
-                                <div className=' flex justify-center'>
-                                    <div className='w-[90%] md:w-full md:grid md:grid-cols-2'>
+
+                            <div className=' flex justify-center'>
+                                <div className='w-[90%] md:w-full md:grid md:grid-cols-2'>
+                                    <div>
                                         <div>
-                                            <div>
-                                                <p className='md:text-[1.1vw] text-[3.5vw] mb-1 indent-2 mt-1 xl:text-[1vw] '>First Name</p>
-                                                <input type='text' className='border w-full md:w-[90%] md:p-4 p-2  rounded-lg' required     name="username"/>
-                                            </div>
-                                            <div>
-                                                <p className='md:text-[1.1vw] text-[3.5vw] indent-2 mb-1 mt-5 xl:text-[1vw]'>E-mail</p>
-                                                <input type='email' className='border md:w-[90%] md:p-4 w-full p-2 rounded-lg' name="email" required />
-                                            </div>
+                                            <p className='md:text-[1.1vw] text-[3.5vw] mb-1 indent-2 mt-1 xl:text-[1vw] '>First Name</p>
+                                            <input name='name' value={data ? data.name : ''} onChange={handleChange} type='text' className='border w-full md:w-[90%] md:p-4 p-2  rounded-lg' />
                                         </div>
                                         <div>
-                                            <div>
-                                                <p className='md:text-[1.1vw] text-[3.5vw] mb-1 indent-2 mt-1 xl:text-[1vw]'>Last Name</p>
-                                                <input type='text' className='border md:w-[90%] md:p-4 w-full p-2 rounded-lg' required name='subject'/>
-                                            </div>
-                                            <div>
-                                                <p className='md:text-[1.1vw] mb-1 text-[3.5vw] indent-2 mt-5 xl:text-[1vw]'>Phone number</p>
-                                                <input type='text' className='border md:w-[90%] md:p-4 w-full p-2  rounded-lg' required name='phone'/>
-                                            </div>
+                                            <p className='md:text-[1.1vw] text-[3.5vw] indent-2 mb-1 mt-5 xl:text-[1vw]'>E-mail</p>
+                                            <input value={data ? data.email : ''} onChange={handleChange} id='email' type='email' className='border md:w-[90%] md:p-4 w-full p-2 rounded-lg' name="email" />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <p className='md:text-[1.1vw] text-[3.5vw] mb-1 indent-2 mt-1 xl:text-[1vw]'>Last Name</p>
+                                            <input type='text' name='surname' value={data ? data.surname : ''} onChange={handleChange} className='border md:w-[90%] md:p-4 w-full p-2 rounded-lg' />
+                                        </div>
+                                        <div>
+                                            <p className='md:text-[1.1vw] mb-1 text-[3.5vw] indent-2 mt-5 xl:text-[1vw]'>Phone number</p>
+                                            <input id='phone' type='text' name='phone' onChange={handleChange} value={data ? data.phone : ''} className='border md:w-[90%] md:p-4 w-full p-2  rounded-lg' />
                                         </div>
                                     </div>
                                 </div>
-                                <div className='flex justify-center'>
-                                    <div className='w-[90%] md:w-full'>
-                                        <p className='md:text-[1.1vw] text-[3.5vw] mb-1 indent-2 mt-5 xl:text-[1vw]'>
-                                            Message
-                                        </p>
-                                        <textarea className='border w-full p-3 md:text-[1vw] text-[3.5vw]  h-[50vw] md:w-[95%] mt-3 rounded-lg md:h-[15vw] xl:h-[10vw] ' />
-                                    </div>
+                            </div>
+                            <div className='flex justify-center'>
+                                <div className='w-[90%] md:w-full'>
+                                    <p className='md:text-[1.1vw] text-[3.5vw] mb-1 indent-2 mt-5 xl:text-[1vw]'>
+                                        Message
+                                    </p>
+                                    <textarea id='text' name='text' onChange={handleChange} value={data ? data.text : ''} className='border w-full p-3 md:text-[1vw] text-[3.5vw]  h-[50vw] md:w-[95%] mt-3 rounded-lg md:h-[15vw] xl:h-[10vw] ' />
                                 </div>
-                                <div className='flex justify-end mt-3 w-[95%]'>
-                                    <button className='md:py-4 md:px-12 px-8 py-3 md:text-[1vw] rounded-lg border bg-[#fff] font-[700] theme-btn btn-style-eight clearfix' >Sent</button>
-                                </div>
-                            </form>
+                            </div>
+                            <div className='flex justify-end mt-3 w-[95%]'>
+                                <button onClick={() => fetch()} className='md:py-4 md:px-12 px-8 py-3 md:text-[1vw] rounded-lg border bg-[#fff] font-[700] theme-btn btn-style-eight clearfix' >Sent</button>
+                            </div>
+
                         </div>
                     </div>
                 </div>

@@ -7,15 +7,7 @@ import Gallery from '../components/Gallery'
 import { useState } from 'react'
 
 function Home() {
-  // const [fix, setFix] = useState(false)
 
-  // const handleScroll = () => {
-  //   if (window.scrollY >= 500) {
-  //     setFix(!fix)
-  //   }
-  // }
-
-  // window.addEventListener('scroll', handleScroll)
 
   return (
     <div >
@@ -25,11 +17,11 @@ function Home() {
       <Gallery />
       <ContactUs />
 
-          <button className=' fixed bottom-8 right-4 '>
+          <div className=' fixed bottom-8 right-4 z-[999]'>
             <a href='#'>
-              <img src='./img/up-arrow.png' className='md:w-[3vw] md:h-[3vw] ' />
+              <img src='./img/up-arrow.png' className='md:w-[3vw] md:h-[3vw] w-[8vw] h-[8vw] ' />
             </a>
-          </button>
+          </div>
 
     </div>
   )

@@ -17,7 +17,7 @@ function Gallery() {
                     <div className='md:mt-5 mt-3 md:flex '>
                         <img src='./img/play1.jpg' className='md:w-[30vw] md:h-[25vw] object-cover ' />
                        
-                            <img src='./img/play2.jpg' className='md:w-[46vw] md:ml-[4rem] md:h-[25vw] h-[90vw] object-cover ' />
+                            <img src='./img/play2.jpg' className='md:w-[46vw] md:ml-[4rem] md:h-[25vw] h-[90vw] object-cover mt-3 md:mt-0' />
                         
                     </div>
                     <div className='md:mt-10 md:flex justify-center'>
