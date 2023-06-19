@@ -8,17 +8,39 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 
-const team = [
-    { img: './img/play1.jpg', num: '3', title: 'Players_Name', title1: 'Players_Position' },
-    { img: './img/play2.jpg', num: '6', title: 'Players_Name', title1: 'Players_Position' },
-    { img: './img/play1.jpg', num: '3', title: 'Players_Name', title1: 'Players_Position' },
-    { img: './img/play2.jpg', num: '3', title: 'Players_Name', title1: 'Players_Position' },
-    { img: './img/play1.jpg', num: '7', title: 'Players_Name', title1: 'Players_Position' },
-    { img: './img/play2.jpg', num: '8', title: 'Players_Name', title1: 'Players_Position' },
-    { img: './img/play1.jpg', num: '9', title: 'Players_Name', title1: 'Players_Position' },
-    { img: './img/play2.jpg', num: '3', title: 'Players_Name', title1: 'Players_Position' },
 
+
+const team_1 = [
+    { img: './img/work_5.jpg', title: 'Şükürberdiýew Rahmanberdi', title1: 'Menejer' },
+    { img: './img/work_1.jpeg', title: 'Krýukow Aleksandr', title1: 'Administrator' },
+    { img: './img/work_2.jpeg', title: 'Annadurdyýew Amandurdy', title1: 'Tälimçi' },
+    { img: './img/work_3.jpeg', title: 'Öwezow Ýakup', title1: 'Baş Tälimçi' },
+    { img: './img/player_7.jpeg', title: 'Orazmämmedow Berdimyrat', title1: 'Administrator' },
+    { img: './img/player5.jpeg', title: 'Iskandarow Rustam', title1: 'Derwezeban Tälimçi' },
+    { img: './img/work_6.jpg', title: 'Baýseýidow Baýseýit', title1: 'Toparyň Başlygy' },
 ]
+
+const team = [
+    { img: './img/player_10.jpeg', num: '8', title: 'Baýramdurdyýew Şiri', title1: 'Goragçy' },
+    { img: './img/player_11.jpeg', num: '6', title: 'Pançenko Daniil', title1: 'Hüjümçi' },
+    { img: './img/player_12.jpeg', num: '1', title: 'Baýramow Meretgeldi', title1: 'Derwezeban' },
+    { img: './img/player_16.jpeg', num: '15', title: 'Durdyýew Akmyrat', title1: 'Hüjümçi' },
+    { img: './img/player_17.jpeg', num: '13', title: 'Tareyew Aleksandr', title1: 'Goragçy' },
+    { img: './img/player_18.jpeg', num: '16', title: 'Halmämmedow Arzuw', title1: 'Derwezeban' },
+    { img: './img/player_19.jpeg', num: '7', title: 'Berenow Kadir', title1: 'Hüjümçi' },
+    { img: './img/player_20.jpeg', num: '10', title: 'Hudaýbergenow Alişer', title1: 'Hüjümçi' },    
+    { img: './img/player15.jpeg', num: '2', title: 'Çariýew Keril', title1: 'Hüjümçi' },    
+    { img: './img/player_8.jpeg', num: '20', title: 'Murjikow Maksatseýit', title1: 'Goragçy' },
+    { img: './img/player_21.jpeg', num: '4', title: 'Soltanow Maksat', title1: 'Hüjümçi' },
+    { img: './img/player_22.jpeg', num: '3', title: 'Gylyçmyradow Gylyçmyrat', title1: 'Goragçy' },
+    { img: './img/player_23.jpg', num: '12', title: 'Durliýew Dawud', title1: 'Hüjümçi' },
+    { img: './img/player_24.jpg', num: '22', title: 'Sofiýew Berdimyrat', title1: 'Derwezeban' },
+    { img: './img/player_25.jpeg', num: '5', title: 'Garajaýew Daýanç', title1: 'Goragçy' },
+    { img: './img/player_26.jpg', num: '11', title: 'Meňlibaýew Hamid', title1: 'Hüjümçi' },
+    { img: './img/player_27.jpg', num: '17', title: 'Annamyradow Jasurbek', title1: 'Goragçy' },
+    { img: './img/player_28.jpeg', num: '9', title: 'Nursähedow Abdyllah', title1: 'Hüjümçi' },
+]
+
 
 
 
@@ -32,18 +54,21 @@ function Teams() {
     console.log(navigationPrevRef)
     return (
         <div className='pt-[2rem] pb-[1rem] bg-[#f5f7f7e8]' id='OurTeam'>
-            <div className='flex justify-end w-[95%] md:mt-[5rem] '>
-                <div>
+            <div className='flex justify-center  md:mt-[5rem] '>
+                <div className='w-[85%] md:w-[90%] ' >
                     <h2
-                        className='text-[6vw] md:text-[3vw] xl:text-[2vw]  font-[600] flex justify-end'>Our Teams</h2>
-                    <div className='md:w-[75%] w-[70%] ml-8 md:ml-6 xl:ml-14 2xl:w-[70%]  h-[2px] bg-green-200'></div>
+                        className='text-[6vw] md:text-[3vw] xl:text-[2vw] select-none  font-[600] flex justify-start md:justify-end'>Biziň toparymyz</h2>
+
+                    <div className='flex md:justify-end'>
+                        <div className='md:w-[12%]   w-[35%] ml-1 md:ml-6 xl:ml-14   h-[2px] bg-green-200'></div>
+                    </div>
                 </div>
             </div>
 
             <div>
                 <div className='flex justify-center md:mb-[3rem] mb-[1.5rem]'>
                     <div className='flex justify-start w-[80%] md:mt-[5rem] mt-[2rem] '>
-                        <h2 className='text-[6vw] md:text-[2vw] xl:text-[1.5vw] text-[#39546C] font-[700] flex justify-end'>Our Judge</h2>
+                        <h2 className='text-[6vw] md:text-[2vw] xl:text-[1.5vw] text-[#39546C] font-[700] flex justify-end'>Tälimçiler</h2>
                     </div>
                 </div>
                 <ul className='justify-center flex'>
@@ -85,7 +110,7 @@ function Teams() {
                                 swiper.params.navigation.nextEl = navigationNextRef.current;
                             }}
                         >
-                            {team.map((Team, i) => (
+                            {team_1.map((Team, i) => (
                                 <SwiperSlide key={i}>
                                     <div className='justify-center flex'>
                                         <li className='md:w-[25vw] w-[90%]'>
@@ -118,14 +143,14 @@ function Teams() {
             <div>
                 <div className='flex justify-center md:mb-[3rem] mb-[1.5rem]'>
                     <div className='flex justify-start w-[80%] md:mt-[5rem] mt-[2rem] '>
-                        <h2 className='text-[6vw] md:text-[2vw] xl:text-[1.5vw] text-[#39546C] font-[700] flex justify-end'>Our Players</h2>
+                        <h2 className='text-[6vw] md:text-[2vw] xl:text-[1.5vw] text-[#39546C] select-none font-[700] flex justify-end'>Biziň Oýunçylarmyz</h2>
                     </div>
                 </div>
             </div>
             <div>
                 <ul className='justify-center flex'>
                     <div className='flex items-center'>
-                        <img ref={navigationPrevRef1} src='./img/left-arrow.png' className='md:w-[2vw] md:h-[2vw] w-[7vw] h-[7vw]' />
+                        <img ref={navigationPrevRef1} src='./img/left-arrow.png' className='md:w-[2vw] cursor-pointer md:h-[2vw] w-[7vw] h-[7vw]' />
                     </div>
                     <div className='md:w-[80%] w-[85%]'>
                         <Swiper
@@ -183,8 +208,8 @@ function Teams() {
                         </Swiper>
 
                     </div>
-                    <div className='flex items-center'> 
-                         <img ref={navigationNextRef1} src='./img/right.png' className='md:w-[2vw] md:h-[2vw] w-[7vw] h-[7vw] ' />
+                    <div className='flex items-center'>
+                        <img ref={navigationNextRef1} src='./img/right.png' className='md:w-[2vw] cursor-pointer md:h-[2vw] w-[7vw] h-[7vw] ' />
                     </div>
                 </ul>
 
